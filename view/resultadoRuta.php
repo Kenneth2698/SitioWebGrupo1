@@ -308,53 +308,138 @@
                 </script>
             </div>
 
-            <div class="section-top-border">
+            <style>
+                .modal {
+                
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                cursor: auto;
+                }
+                
+                /* Modal Content */
+                .modal-content {
+                -webkit-transition: display 0.8s ease;
+                -moz-transition: display 0.8s ease;
+                -o-transition: display 0.8s ease;
+                -ms-transition: display 0.8s ease;
+                transition: display 0.8s ease;
+
+                background-color: rgba(34, 18, 0, 0.589);
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 50%;
+                }
+                .modal-content h4{
+                padding: 10px;
+                color: white;
+                }
+                
+                /* The Close Button */
+                .close {
+                color: #ffffff;
+                float: inline-end;
+                font-size: 35px;
+                font-weight: bold;
+                }
+                
+                .close:hover,
+                .close:focus {
+                color: rgb(247, 11, 11);
+                text-decoration: none;
+                cursor: pointer;
+                }
+
+            </style>
+
+            <div class="section-top-border" id="galeria">
                 <h3>Galeria de la Ruta</h3>
                 <div class="row gallery-item">
                     <div class="col-md-4">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                    <!-- class="img-pop-up" -->
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                     <div class="col-md-6">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                     <div class="col-md-6">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="assets/img/service/services7.jpg" class="img-pop-up">
+                        <a href="#galeria" class="" onclick="modal(1)">
                             <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
                         </a>
                     </div>
                 </div>
             </div>
 
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <CENTER>
+                        <span id="1" class="close">&times;</span>
+                        <div id="contenidoModal">
+                        </div>
+                    </CENTER>
+                </div>
+            </div>
+            <script>
+                var modal;
+                var span;
+                var contenidoModal;
+                function modal(ofer) {
+                        contenidoModal = document.getElementById("contenidoModal");
+                        contenidoModal.innerHTML = '<CENTER><img src="assets/img/service/services7.jpg" alt="oferta1" width="300" height="300" /><h4>Los mejores atractivos turisticos forman parte de nuestras rutas</h4>'+
+                        '<iframe width="560" height="315" src="https://www.youtube.com/embed/thUQ6HW4bbQ?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></CENTER>';
 
+
+                    document.getElementById('myModal').style = "display: block";
+                }
+                var modal1 = document.getElementById('myModal');
+                var span = document.getElementById("1");
+                span.onclick = function () {
+                    modal1.style.display = "none";
+                }
+                window.onclick = function (event) {
+                    if (event.target == modal1) {
+                        modal1.style.display = "none";
+                    }
+                }
+            </script>
 
         </div>
     </section>
