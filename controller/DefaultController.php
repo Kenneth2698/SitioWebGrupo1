@@ -56,4 +56,9 @@ class DefaultController
     {
         $this->view->show('resultadoRuta.php', null);
     }//mostrarResultadoRuta
+
+    public function mostrarActualizarAtractivo(){
+        $this->view->show('actualizarAtractivo.php', null);
+    }//mostrarActualizarAtractivo
+
 }

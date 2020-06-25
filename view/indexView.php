@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -88,165 +87,126 @@
                             <div class="col-xl-9 col-lg-9 col-md-9">
                                 <div class="hero__caption">
                                     <h1><span>Rutas turisticas!</span> </h1>
-                                    <p>¿Dónde te gustaría ir?</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Search Box -->
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="select-form mb-30">
-
-                                    </div>
-                                    <div class="search-form mb-30">
-                                        <a href="#Busqueda">Buscar</a>
-                                    </div>
-                                    <div class="select-form mb-30">
-
-                                    </div>
-
-                                </form>
+                        <div class="container">
+                            <div class="section-tittle text-center">
+                                <h2>Criterios de busqueda</h2>
                             </div>
+                            <div class="section-top-border" style="background-color: white;">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-8">
+                                        <center>
+                                            <div class="single-element-widget" style="width: 50% !important;">
+
+                                                <h3 class="mb-30">Precio</h3>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Económico</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch1">
+                                                        <label for="switch1"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Regular</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch2" checked>
+                                                        <label for="switch2"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Premium</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch3">
+                                                        <label for="switch3"></label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </center>
+                                    </div>
+                                    <div class="col-lg-4 col-md-8">
+                                        <center>
+                                            <div class="single-element-widget" style="width: 50% !important;">
+
+                                                <h3 class="mb-30">Tipo turista</h3>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Niños</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch12">
+                                                        <label for="switch12"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Adultos</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch22" checked>
+                                                        <label for="switch22"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Todo público</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch32">
+                                                        <label for="switch32"></label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </center>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 mt-sm-30">
+                                        <center>
+                                            <div class="single-element-widget" style="width: 50% !important;">
+
+                                                <h3 class="mb-30">Tipo actividad</h3>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Turismo cultural</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch13">
+                                                        <label for="switch13"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Turismo aventura</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch23" checked>
+                                                        <label for="switch23"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="switch-wrap d-flex justify-content-between">
+                                                    <p>Turismo playa</p>
+                                                    <div class="primary-switch">
+                                                        <input type="checkbox" id="switch33">
+                                                        <label for="switch33"></label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <center>
+                                <a href="?controlador=Default&accion=mostrarListaRutas" class="genric-btn primary e-large">
+                                    <H3 style="color: GRAY; ">BUSCAR</H3>
+                                </a>
+                            </center>
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- slider Area End-->
         <!-- Our Services Start -->
-        <div class="our-services servic-padding" id="Busqueda">
-            <div class="container">
-                <div class="section-tittle text-center">
-                    <h2>Criterios de busqueda</h2>
-                </div>
-                <div class="section-top-border">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-8">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
 
-                                    <h3 class="mb-30">Precio</h3>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Económico</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch1">
-                                            <label for="switch1"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Regular</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch2" checked>
-                                            <label for="switch2"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Premium</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch3">
-                                            <label for="switch3"></label>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-4 col-md-8">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-
-                                    <h3 class="mb-30">Tipo turista</h3>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Niños</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch12">
-                                            <label for="switch12"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Adultos</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch22" checked>
-                                            <label for="switch22"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Todo público</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch32">
-                                            <label for="switch32"></label>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-4 col-md-4 mt-sm-30">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-
-                                    <h3 class="mb-30">Tipo actividad</h3>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Turismo cultural</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch13">
-                                            <label for="switch13"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Turismo aventura</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch23" checked>
-                                            <label for="switch23"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Turismo playa</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch33">
-                                            <label for="switch33"></label>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-
-                <center>
-                    <a href="?controlador=Default&accion=mostrarListaRutas" class="genric-btn primary e-large">Buscar recomendaciones</a>
-                </center>
-            </div>
         </div>
-        </div>
-        <br><br><br><br><br><br>
+
     </main>
-    <footer>
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding footer-bg" data-background="assets/img/service/footer_bg.jpg">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-
-                </div>
-                <!-- Footer bottom -->
-                <div class="row pt-padding">
-                    <div class="col-xl-7 col-lg-7 col-md-7">
-                        <div class="footer-copy-right">
-
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-lg-5 col-md-5">
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End-->
-    </footer>
 
     <!-- JS here -->
 

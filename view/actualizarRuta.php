@@ -56,6 +56,7 @@
                                     <nav>               
                                          <ul id="navigation">                                                                                                                                     
                                          <li><a href="?controlador=Default&accion=mostrarAgregarAtractivo">Crear atractivo</a></li>
+                                         <li><a href="?controlador=Default&accion=mostrarActualizarAtractivo">Actualizar atractivo</a></li>
                                             <li><a href="?controlador=Default&accion=mostrarAgregarRuta">Crear ruta</a></li>
                                             <li><a href="?controlador=Default&accion=mostrarActualizarRuta">Actualizar ruta</a></li>
                                             <li><a href="?controlador=Default&accion=accionDefault">Cerrar sesión</a></li>

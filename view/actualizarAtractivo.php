@@ -48,7 +48,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60"  alt=""></a>
+                                    <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -57,7 +57,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="?controlador=Default&accion=mostrarAgregarAtractivo">Crear atractivo</a></li>
-                                            <li><a href="?controlador=Default&accion=mostrarAgregarAtractivo">Actualizar atractivo</a></li>
+                                            <li><a href="?controlador=Default&accion=mostrarActualizarAtractivo">Actualizar atractivo</a></li>
                                             <li><a href="?controlador=Default&accion=mostrarAgregarRuta">Crear ruta</a></li>
                                             <li><a href="?controlador=Default&accion=mostrarActualizarRuta">Actualizar ruta</a></li>
                                             <li><a href="?controlador=Default&accion=accionDefault">Cerrar sesión</a></li>
@@ -84,77 +84,49 @@
         <!-- slider Area End-->
         <!-- Our Services Start -->
         <div class="our-services servic-padding" id="Busqueda">
-            <div class="container">
-                <div class="section-tittle text-center">
-                    <h2>Crea un nuevo atractivo</h2>
-                </div>
-                <div class="section-top-border">
-                    <div class="row">
-
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Lugar</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="Ejemplo: Turrialba">
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Imagen</h3>
-                                    <div class="default-select" id="default-select">
-                                    <input type="file" name="" >
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Descripcion</h3>
-                                    <div class="default-select" id="default-select">
-                                        <textarea id="w3mission" rows="10" cols="50">
-
-                                </textarea>
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Latitud y longitud</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="Ejemplo: 41.4032, 2.17403 ">
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <br>
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Video</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="youtube.com/12345678">
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-
-                <center>
-                    <a href="#" class="genric-btn primary e-large">Registrar atractivo</a>
-                </center>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del atractivo</th>
+                        <th>Descripcion del atractivo</th>
+                        <th>Actualizar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--AQUI VA EL FOR AK7 PA-->
+                    <tr>
+                        <form action="#" method="POST">
+                            <input type="hidden" id="id" name="id" value="1">
+                            <th>1</th>
+                            <td><input type="text" id="nombre" name="nombre" value="Atractivo 1"></td>
+                            <td> <textarea name="descripcion" id="descripcion" cols="100" rows="2"> Aqui va la descripcion del atractivo</textarea> </td>
+                            <td><button class="btn-warning">Actualizar</button></td>
+                        </form>
+                        <form action="">
+                            <input type="hidden" id="id" name="id" value="1">
+                            <td><button class="btn-danger">Eliminar</button></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <form action="#" method="POST">
+                            <input type="hidden" id="id" name="id" value="1">
+                            <th>2</th>
+                            <td><input type="text" id="nombre" name="nombre" value="Atractivo 2"></td>
+                            <td> <textarea name="descripcion" id="descripcion" cols="100" rows="2"> Aqui va la descripcion del atractivo numero 2</textarea> </td>
+                            <td><button class="btn-warning">Actualizar</button></td>
+                        </form>
+                        <form action="">
+                            <input type="hidden" id="id" name="id" value="1">
+                            <td><button class="btn-danger">Eliminar</button></td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         </div>
-        <br><br><br><br><br><br>
+        <br><br><br><br>
     </main>
     <footer>
         <!-- Footer Start-->
