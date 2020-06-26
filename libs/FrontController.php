@@ -1,5 +1,6 @@
 <?php
-
+//Kenneth Lopez
+//Byron Ortiz
 class FrontController {
     static function main(){
         require 'libs/View.php';

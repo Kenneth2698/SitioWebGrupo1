@@ -1,6 +1,7 @@
     <?php
 
-
+    //Kenneth Lopez
+    //Byron Ortiz
     require 'model/Algoritmos.php';
 
     class DefaultController
@@ -59,6 +60,7 @@
             $datos['rutas'] = $algoritmos->obtenerTodasLasRutas();
             $datos['rutaSeleccionada'] = $algoritmos->obtenerDatosRuta($idRuta);
 
+            //se cargan los nombre de los atributos de acuerdo al lid
             switch ($datos['rutaSeleccionada']['precio']) {
                 case 1:
                     $nombrePrecio = "Económico";
@@ -92,6 +94,7 @@
                     $nombreTipoActividad = "Turismo de playa";
                     break;
             }
+            //se asgina al array para enviarlo a la vista
             $datos['nombrePrecio'] = $nombrePrecio;
             $datos['nombreTipoTurista'] = $nombreTipoTurista;
             $datos['nombreTipoActividad'] = $nombreTipoActividad;
@@ -99,7 +102,7 @@
             $datos['actualizar'] = true;
             $datos['atractivos'] = $atractivosRuta;
             $this->view->show('actualizarRuta.php', $datos);
-        }
+        } //cargarRutaActualizar
 
         public function mostrarAgregarAtractivo()
         {
@@ -236,5 +239,5 @@
             $datos['rutas'] = $algoritmos->obtenerTodasLasRutas();
             $datos['actualizar'] = false;
             $this->view->show('actualizarRuta.php', $datos);
-        }
+        } //actualizarRuta
     }

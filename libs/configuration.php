@@ -1,6 +1,7 @@
 <?php
 //configuration
-
+//Kenneth Lopez
+//Byron Ortiz
 require 'libs/Config.php';
 
 $config = Config::singleton();

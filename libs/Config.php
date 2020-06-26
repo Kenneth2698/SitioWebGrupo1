@@ -1,7 +1,8 @@
 <?php
 
 class Config {
-
+//Kenneth Lopez
+//Byron Ortiz
     private $vars;
     private static $instance;
 

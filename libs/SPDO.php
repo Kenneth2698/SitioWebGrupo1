@@ -1,6 +1,7 @@
 <?php
 
-
+//Kenneth Lopez
+//Byron Ortiz
 class SPDO extends PDO
 {
     private static $instance = null;

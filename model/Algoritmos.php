@@ -1,7 +1,8 @@
 
 <?php
 
-
+//Kenneth Lopez
+//Byron Ortiz
 
 class Algortimos
 {
@@ -173,7 +174,7 @@ class Algortimos
         $consulta->CloseCursor();
 
         return $resultado;
-    }
+    } //obtenerTodasLasRutas
 
     public function actualizarAtractivo($id, $nombre, $descripcion, $imagen, $video)
     {
@@ -186,7 +187,7 @@ class Algortimos
                                         WHERE id = $id");
         $consulta->execute();
         $consulta->closeCursor();
-    }
+    } //actualizarAtractivo
 
     public function eliminarAtractivo($id)
     {
@@ -194,7 +195,7 @@ class Algortimos
                                         WHERE id = $id");
         $consulta->execute();
         $consulta->closeCursor();
-    }
+    } //eliminarAtractivo
 
     public function actualizarRuta($nombre, $precio, $tipoTurista, $tipoActividad, $id)
     {
@@ -207,7 +208,7 @@ class Algortimos
                                         WHERE id = $id");
         $consulta->execute();
         $consulta->closeCursor();
-    }
+    } //actualizarRuta
 }
 ?>
   

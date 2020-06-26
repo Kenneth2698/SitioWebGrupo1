@@ -1,5 +1,6 @@
 <?php
-
+//Kenneth Lopez
+//Byron Ortiz
 
 class View {
     public function __construct() {
