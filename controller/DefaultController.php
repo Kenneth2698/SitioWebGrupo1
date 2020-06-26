@@ -18,8 +18,6 @@
             public function AccionDefault()
             {
 
-                $model = new DefaultModel();
-                $resultado['atractivos'] = $model->obtenerAtractivos();
                 $resultado['tieneRespuesta'] = false;
 
                 $this->view->show('indexView.php', $resultado);
