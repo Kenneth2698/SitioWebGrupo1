@@ -51,7 +51,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60"  alt=""></a>
+                                    <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -95,28 +95,38 @@
     <!-- Start Align Area -->
     <div class="whole-wrap">
         <div class="container box_1170">
-
+            <?php if (isset($vars['mensaje'])) { ?>
+                <center>
+                    <h3 style="color: red;"><?php echo $vars['mensaje'] ?></h3>
+                    <br>
+                </center>
+                <br>
+            <?php } ?>
             <div class="section-top-border">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <center>
                             <h1>Inicia Sesión</h1>
-                            <form action="#" style="width: 50% !important; ">
+                            <form action="?controlador=Default&accion=mostrarMenuAdmin" style="width: 50% !important; " method="POST">
                                 <div class="mt-10">
-                                    <input type="text" name="first_name" placeholder="Nombre de usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required class="single-input">
+                                    <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="single-input" required>
                                 </div>
                                 <div class="mt-10">
-                                    <input type="text" name="last_name" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required class="single-input">
+                                    <input type="text" name="contrasena" id="contrasena" placeholder="Contraseña" class="single-input" required>
                                 </div>
+                                <button type="submit" style="background-color: black;">Ingresar</button>
                             </form>
                             <br>
-
-                            <a href="?controlador=Default&accion=mostrarMenuAdmin" class="genric-btn primary e-large">Ingresar</a>
                         </center>
 
                     </div>
                 </div>
             </div>
+            <center>
+                <h3 style="color: blue;">admin</h3>
+                <br>
+                <h3 style="color: blue;">admin</h3>
+            </center>
         </div>
     </div>
     <!-- End Align Area -->

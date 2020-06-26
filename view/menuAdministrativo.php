@@ -99,10 +99,11 @@
 
         <!-- Support Company End-->
         <!-- Our Services Start -->
+        ?controlador=Default&accion=mostrarActualizarAtractivo
         <div class="our-services place-padding">
             <div class="container">
                 <div class="row d-flex justify-contnet-center">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flasticon-tour"></span>
@@ -114,7 +115,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flatsicon-pay"></span>
@@ -127,7 +128,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="services-ion">
+                                <span class="flatsicon-pay"></span>
+                            </div>
+                            <div class="services-cap">
+                                <a href="?controlador=Default&accion=mostrarActualizarAtractivo">
+                                    <h5>Actualizar atractivo</h5>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flatsicon-experience"></span>

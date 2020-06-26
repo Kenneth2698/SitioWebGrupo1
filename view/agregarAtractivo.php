@@ -48,7 +48,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60"  alt=""></a>
+                                    <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -106,7 +106,38 @@
                                 <div class="single-element-widget" style="width: 50% !important;">
                                     <h3 class="mb-30">Imagen</h3>
                                     <div class="default-select" id="default-select">
-                                    <input type="file" name="" >
+                                        <select size="1" name="imagen" id="imagen">
+                                            <option value="1">Imagen 1</option>
+                                            <option value="2">Imagen 3</option>
+                                            <option value="3">Imagen 4</option>
+                                            <option value="4">Imagen 5</option>
+                                            <option value="5">Imagen 6</option>
+                                            <option value="6">Imagen 6</option>
+                                            <option value="7">Imagen 7</option>
+                                            <option value="8">Imagen 8</option>
+                                            <option value="9">Imagen 9</option>
+                                            <option value="10">Imagen 10</option>
+                                            <option value="11">Imagen 11</option>
+                                            <option value="12">Imagen 12</option>
+                                            <option value="13">Imagen 13</option>
+                                            <option value="14">Imagen 14</option>
+                                            <option value="15">Imagen 15</option>
+                                            <option value="16">Imagen 16</option>
+                                            <option value="17">Imagen 17</option>
+                                            <option value="18">Imagen 18</option>
+                                            <option value="19">Imagen 19</option>
+                                            <option value="20">Imagen 20</option>
+                                            <option value="21">Imagen 21</option>
+                                            <option value="22">Imagen 22</option>
+                                            <option value="23">Imagen 23</option>
+                                            <option value="24">Imagen 24</option>
+                                            <option value="25">Imagen 25</option>
+                                            <option value="26">Imagen 26</option>
+                                            <option value="27">Imagen 27</option>
+                                            <option value="28">Imagen 28</option>
+                                            <option value="29">Imagen 29</option>
+                                            <option value="30">Imagen 30</option>
+                                        </select>
                                     </div>
                                 </div>
                             </center>
@@ -124,12 +155,22 @@
                             </center>
                         </div>
 
-                        <div class="col-lg-4 col-md-4">
+                        <div class="col-lg-2 col-md-2">
                             <center>
                                 <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Latitud y longitud</h3>
+                                    <h3 class="mb-30">Latitud</h3>
                                     <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="Ejemplo: 41.4032, 2.17403 ">
+                                    <input type=" text" name="" placeholder="Ejemplo: 41.4032 ">
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                        <div class="col-lg-2 col-md-2">
+                            <center>
+                                <div class="single-element-widget" style="width: 50% !important;">
+                                    <h3 class="mb-30">Longitud</h3>
+                                    <div class="default-select" id="default-select"">
+                                    <input type=" text" name="" placeholder="Ejemplo: 2.17403 ">
                                     </div>
                                 </div>
                             </center>
@@ -140,7 +181,18 @@
                                 <div class="single-element-widget" style="width: 50% !important;">
                                     <h3 class="mb-30">Video</h3>
                                     <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="youtube.com/12345678">
+                                    <select name=" video" id="video">
+                                        <option value="1">Video 1</option>
+                                        <option value="2">Video 2</option>
+                                        <option value="3">Video 3</option>
+                                        <option value="4">Video 4</option>
+                                        <option value="5">Video 5</option>
+                                        <option value="6">Video 6</option>
+                                        <option value="7">Video 7</option>
+                                        <option value="8">Video 8</option>
+                                        <option value="9">Video 9</option>
+                                        <option value="10">Video 10</option>
+                                        </select>
                                     </div>
                                 </div>
                             </center>

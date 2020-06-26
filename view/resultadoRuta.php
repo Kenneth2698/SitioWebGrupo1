@@ -31,35 +31,6 @@
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24"></script>
 
-    <script type="text/javascript">
-        window.onload = function() {
-
-            var map;
-            var dir;
-
-            map = L.map('map', {
-                layers: MQ.mapLayer(),
-                center: [38.895345, -77.030101],
-                zoom: 20
-            });
-
-            dir = MQ.routing.directions();
-
-            dir.route({
-                locations: [
-                    '9.965422, -83.729500',
-                    '9.908736, -83.687365',
-                    '9.958008, -83.708023'
-
-                ]
-            });
-
-            map.addLayer(MQ.routing.routeLayer({
-                directions: dir,
-                fitBounds: true
-            }));
-        }
-    </script>
 </head>
 
 <body>
@@ -133,7 +104,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle text-center">
-                        <h2>Ruta </h2>
+                        <h2><?php echo $vars['nombreRuta'] ?> </h2>
                     </div>
                 </div>
             </div>
@@ -204,7 +175,7 @@
             <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
             <script>
                 var myMap;
-                var myLatlng = new google.maps.LatLng( 9.965422, -83.729500);
+                var myLatlng = new google.maps.LatLng(<?php echo $vars['latitudRuta'] ?>, <?php echo $vars['longitudRuta'] ?>);
 
                 function initialize() {
                     var mapOptions = {
@@ -224,119 +195,48 @@
                 google.maps.event.addDomListener(window, 'load', initialize);
             </script>
 
-            <div id="map" style="width:100%; height: 500px;">
 
-            </div>
             <div class="section-top-border" id="galeria">
-                <h3>Galeria de la Ruta</h3>
+                <h3>Atractivos pertenecientes a la ruta <?php echo $vars['nombreRuta'] ?></h3>
                 <div class="row gallery-item">
-                    <div class="col-md-4">
-                        <!-- class="img-pop-up" -->
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#galeria" class="" onclick="modal(1)">
-                            <div class="single-gallery-image" style="background: url(assets/img/service/services7.jpg);"></div>
-                        </a>
-                    </div>
-                </div>
+                    <?php foreach ($vars['atractivos'] as $atractivo) { ?>
+                        <div class="col-md-4">
+                            <a class="#galeria" onclick="modal('<?php echo $atractivo['descripcion'] ?>','<?php echo $atractivo['video'] ?>',<?php echo $atractivo['imagen'] ?>)">
+                                <div class="single-gallery-image" style="background: url(view/assets/img/imagenes/i<?php echo $atractivo['imagen'] . ".jpg" ?>);"></div>
+                                <p><?php echo $atractivo['nombre'] ?></p>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>`
             </div>
-
+            <center>
+                <div class="col-md-10" id="map" style="width:100%; height: 300px;"></div>
+            </center>
             <div class="favourite-place place-padding">
                 <div class="container">
-                    <!-- Section Tittle -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-tittle text-center">
-                                <h2>También te puede interesar</h2>
-                            </div>
-                        </div>
+                    <div class="section-tittle text-center">
+                        <h2>También te puede interesar ▼</h2> 
                     </div>
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-place mb-30">
-                                <div class="place-img">
-                                    <img src="assets/img/service/services7.jpg" alt="">
-                                </div>
-                                <div class="place-cap">
-                                    <div class="place-cap-top">
-                                        <h3><a href="?controlador=Default&accion=mostrarResultadoRuta">Ruta 1</a></h3>
+                        <?php foreach ($vars['rutas'] as $ruta) { ?>
+                            <div class="col-md-4">
+                                <div class="single-place mb-30">
+                                    <div class="place-img">
+                                        <img src="view/assets/img/imagenes/i<?php echo $ruta['imagen'] ?>.jpg" alt="">
                                     </div>
-                                    <div class="place-cap-bottom">
-                                        <ul>
-                                            <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-place mb-30">
-                                <div class="place-img">
-                                    <img src="assets/img/service/services2.jpg" alt="">
-                                </div>
-                                <div class="place-cap">
-                                    <div class="place-cap-top">
-                                        <h3><a href="?controlador=Default&accion=mostrarResultadoRuta">Ruta 2</a></h3>
-                                    </div>
-                                    <div class="place-cap-bottom">
-                                        <ul>
-                                            <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
-                                        </ul>
+                                    <div class="place-cap">
+                                        <div class="place-cap-top">
+                                            <h3><a href="?controlador=Default&accion=mostrarResultadoRuta&idRuta=<?php echo $ruta['id'] ?>"><?php echo $ruta['nombre'] ?></a></h3>
+                                        </div>
+                                        <div class="place-cap-bottom">
+                                            <ul>
+                                                <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-place mb-30">
-                                <div class="place-img">
-                                    <img src="assets/img/service/services3.jpg" alt="">
-                                </div>
-                                <div class="place-cap">
-                                    <div class="place-cap-top">
-                                        <h3><a href="?controlador=Default&accion=mostrarResultadoRuta">Ruta 3</a></h3>
-                                    </div>
-                                    <div class="place-cap-bottom">
-                                        <ul>
-                                            <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -355,10 +255,10 @@
                 var span;
                 var contenidoModal;
 
-                function modal(ofer) {
+                function modal(descripcion, video, imagen) {
                     contenidoModal = document.getElementById("contenidoModal");
-                    contenidoModal.innerHTML = '<CENTER><img src="assets/img/service/services7.jpg" alt="oferta1" width="300" height="300" /><h4>Los mejores atractivos turisticos forman parte de nuestras rutas</h4>' +
-                        '<iframe width="560" height="315" src="https://www.youtube.com/embed/thUQ6HW4bbQ?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></CENTER>';
+                    contenidoModal.innerHTML = '<CENTER><img src="view/assets/img/imagenes/i' + imagen + '.jpg" alt="oferta1" width="500" height="300" /><h4>' + descripcion + '</h4>' +
+                        '<iframe width="560" height="315" src="' + video + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></CENTER>';
 
 
                     document.getElementById('myModal').style = "display: block";

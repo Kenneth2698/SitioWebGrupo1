@@ -84,44 +84,96 @@
         <!-- slider Area End-->
         <!-- Our Services Start -->
         <div class="our-services servic-padding" id="Busqueda">
+            <?php if (isset($vars['mensaje'])) { ?>
+                <center>
+                    <h3 style="color: red;"><?php echo $vars['mensaje'] ?> correctamente</h3>
+                </center>
+                <br>
+            <?php } else { ?>
+
+                <center>
+                 <h3>Lista de atractivos</h3>
+                </center>
+                <br>
+            <?php } ?>
             <table class="table">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre del atractivo</th>
                         <th>Descripcion del atractivo</th>
+                        <th>Imagen</th>
+                        <th>Video</th>
                         <th>Actualizar</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!--AQUI VA EL FOR AK7 PA-->
-                    <tr>
-                        <form action="#" method="POST">
-                            <input type="hidden" id="id" name="id" value="1">
-                            <th>1</th>
-                            <td><input type="text" id="nombre" name="nombre" value="Atractivo 1"></td>
-                            <td> <textarea name="descripcion" id="descripcion" cols="100" rows="2"> Aqui va la descripcion del atractivo</textarea> </td>
-                            <td><button class="btn-warning">Actualizar</button></td>
-                        </form>
-                        <form action="">
-                            <input type="hidden" id="id" name="id" value="1">
-                            <td><button class="btn-danger">Eliminar</button></td>
-                        </form>
-                    </tr>
-                    <tr>
-                        <form action="#" method="POST">
-                            <input type="hidden" id="id" name="id" value="1">
-                            <th>2</th>
-                            <td><input type="text" id="nombre" name="nombre" value="Atractivo 2"></td>
-                            <td> <textarea name="descripcion" id="descripcion" cols="100" rows="2"> Aqui va la descripcion del atractivo numero 2</textarea> </td>
-                            <td><button class="btn-warning">Actualizar</button></td>
-                        </form>
-                        <form action="">
-                            <input type="hidden" id="id" name="id" value="1">
-                            <td><button class="btn-danger">Eliminar</button></td>
-                        </form>
-                    </tr>
+                    <?php foreach ($vars['atractivos'] as $atractivo) { ?>
+                        <tr>
+                            <form action="?controlador=Default&accion=actualizarAtractivo" method="POST">
+                                <input type="hidden" id="id" name="id" value="<?php echo $atractivo['id'] ?>">
+                                <th><?php echo $atractivo['id'] ?></th>
+                                <td><input type="text" id="nombre" name="nombre" value="<?php echo $atractivo['nombre'] ?>"></td>
+                                <td> <textarea name="descripcion" id="descripcion" cols="70" rows="5"> <?php echo $atractivo['descripcion'] ?></textarea> </td>
+                                <th>
+                                    <select size="1" name="imagen" id="imagen">
+                                        <option selected value=" <?php echo $atractivo['imagen'] ?>">Imagen <?php echo $atractivo['imagen'] ?> </option>
+                                        <option value="1">Imagen 1</option>
+                                        <option value="2">Imagen 3</option>
+                                        <option value="3">Imagen 4</option>
+                                        <option value="4">Imagen 5</option>
+                                        <option value="5">Imagen 6</option>
+                                        <option value="6">Imagen 6</option>
+                                        <option value="7">Imagen 7</option>
+                                        <option value="8">Imagen 8</option>
+                                        <option value="9">Imagen 9</option>
+                                        <option value="10">Imagen 10</option>
+                                        <option value="11">Imagen 11</option>
+                                        <option value="12">Imagen 12</option>
+                                        <option value="13">Imagen 13</option>
+                                        <option value="14">Imagen 14</option>
+                                        <option value="15">Imagen 15</option>
+                                        <option value="16">Imagen 16</option>
+                                        <option value="17">Imagen 17</option>
+                                        <option value="18">Imagen 18</option>
+                                        <option value="19">Imagen 19</option>
+                                        <option value="20">Imagen 20</option>
+                                        <option value="21">Imagen 21</option>
+                                        <option value="22">Imagen 22</option>
+                                        <option value="23">Imagen 23</option>
+                                        <option value="24">Imagen 24</option>
+                                        <option value="25">Imagen 25</option>
+                                        <option value="26">Imagen 26</option>
+                                        <option value="27">Imagen 27</option>
+                                        <option value="28">Imagen 28</option>
+                                        <option value="29">Imagen 29</option>
+                                        <option value="30">Imagen 30</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select size="1" name="video" id="video">
+                                        <option selected value=" <?php echo $atractivo['video'] ?>">Video <?php echo $atractivo['video'] ?> </option>
+                                        <option value="1">Video 1</option>
+                                        <option value="2">Video 2</option>
+                                        <option value="3">Video 3</option>
+                                        <option value="4">Video 4</option>
+                                        <option value="5">Video 5</option>
+                                        <option value="6">Video 6</option>
+                                        <option value="7">Video 7</option>
+                                        <option value="8">Video 8</option>
+                                        <option value="9">Video 9</option>
+                                        <option value="10">Video 10</option>
+                                    </select>
+                                </th>
+                                <td><button class="btn-warning">Actualizar</button></td>
+                            </form>
+                            <form action="?controlador=Default&accion=eliminarAtractivo" method="POST">
+                                <input type="hidden" id="id" name="id" value="<?php echo $atractivo['id'] ?>">
+                                <td><button class="btn-danger">Eliminar</button></td>
+                            </form>
+                        </tr>
+                    <?php  } ?>
                 </tbody>
             </table>
         </div>

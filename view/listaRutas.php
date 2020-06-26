@@ -48,7 +48,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60"  alt=""></a>
+                                    <a href="?controlador=Default&accion=accionDefault"><img src="assets/img/logo/logo.png" height="60" width="60" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -104,64 +104,30 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services7.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="?controlador=Default&accion=mostrarResultadoRuta">Ruta 1</a></h3>
+                    <?php foreach ($vars['rutas'] as $ruta) { ?>
+                        <div class="col-md-4">
+                            <div class="single-place mb-30">
+                                <div class="place-img">
+                                    <img src="view/assets/img/imagenes/i<?php echo $ruta['imagen'] ?>.jpg" alt="">
                                 </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services2.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                <h3><a href="?controlador=Default&accion=mostrarResultadoRuta">Ruta 2</a></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
-                                    </ul>
+                                <div class="place-cap">
+                                    <div class="place-cap-top">
+                                        <h3><a href="?controlador=Default&accion=mostrarResultadoRuta&idRuta=<?php echo $ruta['id'] ?>"><?php echo $ruta['nombre'] ?></a></h3>
+                                    </div>
+                                    <div class="place-cap-bottom">
+                                        <ul>
+                                            <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services3.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                <h3><a href="?controlador=Default&accion=mostrarResultadoRuta">Ruta 3</a></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="fas fa-map-marker-alt"></i>Costa Rica</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php } ?>
                 </div>
             </div>
-        </div>
-        <!-- Favourite Places End -->
+            <!-- Favourite Places End -->
 
-    
+
     </main>
     <footer>
 

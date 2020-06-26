@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="view/assets/js/Script.js"></script>
 </head>
 
 <body>
@@ -90,115 +91,115 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container">
-                            <div class="section-tittle text-center">
-                                <h2>Criterios de busqueda</h2>
-                            </div>
-                            <div class="section-top-border" style="background-color: white;">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-8">
-                                        <center>
-                                            <div class="single-element-widget" style="width: 50% !important;">
+                        <form action="?controlador=Default&accion=mostrarListaRutas" method="POST">
+                            <div class="container">
+                                <div class="section-tittle text-center">
+                                    <h2>Criterios de busqueda</h2>
+                                </div>
+                                <div class="section-top-border" style="background-color: white;">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-8">
+                                            <center>
+                                                <div class="single-element-widget" style="width: 50% !important;">
 
-                                                <h3 class="mb-30">Precio</h3>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Económico</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch1">
-                                                        <label for="switch1"></label>
+                                                    <h3 class="mb-30">Precio</h3>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Económico</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="economico" name="economico" onclick="activarDesactivarPrecio(1)" checked value="1">
+                                                            <label for="economico"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Regular</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch2" checked>
-                                                        <label for="switch2"></label>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Regular</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="regular" name="regular" onclick="activarDesactivarPrecio(2)" value="0">
+                                                            <label for="regular"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Premium</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch3">
-                                                        <label for="switch3"></label>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Premium</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="premium" name="premium" onclick="activarDesactivarPrecio(3)" value="0">
+                                                            <label for="premium"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </div>
-                                        </center>
-                                    </div>
-                                    <div class="col-lg-4 col-md-8">
-                                        <center>
-                                            <div class="single-element-widget" style="width: 50% !important;">
+                                                </div>
+                                            </center>
+                                        </div>
+                                        <div class="col-lg-4 col-md-8">
+                                            <center>
+                                                <div class="single-element-widget" style="width: 50% !important;">
 
-                                                <h3 class="mb-30">Tipo turista</h3>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Niños</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch12">
-                                                        <label for="switch12"></label>
+                                                    <h3 class="mb-30">Tipo turista</h3>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Niños</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="ninos" name="ninos"  onclick="activarDesactivarTurista(1)" value="1">
+                                                            <label for="ninos"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Adultos</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch22" checked>
-                                                        <label for="switch22"></label>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Adultos</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="adultos" name="adultos" checked onclick="activarDesactivarTurista(2)" value="0">
+                                                            <label for="adultos"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Todo público</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch32">
-                                                        <label for="switch32"></label>
+                                                    <div class="switch-wrap d-flex justify-content-between" >
+                                                        <p>Todo público</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="todos" name="todos" onclick="activarDesactivarTurista(3)" value="0">
+                                                            <label for="todos"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </div>
-                                        </center>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 mt-sm-30">
-                                        <center>
-                                            <div class="single-element-widget" style="width: 50% !important;">
+                                                </div>
+                                            </center>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 mt-sm-30">
+                                            <center>
+                                                <div class="single-element-widget" style="width: 50% !important;">
 
-                                                <h3 class="mb-30">Tipo actividad</h3>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Turismo cultural</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch13">
-                                                        <label for="switch13"></label>
+                                                    <h3 class="mb-30">Tipo actividad</h3>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Turismo cultural</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="cultural" name="cultural"  onclick="activarDesactivarActividad(1)" value="1">
+                                                            <label for="cultural"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Turismo aventura</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch23" checked>
-                                                        <label for="switch23"></label>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Turismo aventura</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="aventura" name="aventura" onclick="activarDesactivarActividad(2)" value="0">
+                                                            <label for="aventura"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="switch-wrap d-flex justify-content-between">
-                                                    <p>Turismo playa</p>
-                                                    <div class="primary-switch">
-                                                        <input type="checkbox" id="switch33">
-                                                        <label for="switch33"></label>
+                                                    <div class="switch-wrap d-flex justify-content-between">
+                                                        <p>Turismo playa</p>
+                                                        <div class="primary-switch">
+                                                            <input type="checkbox" id="playa" name="playa" onclick="activarDesactivarActividad(3)" checked value="0">
+                                                            <label for="playa"></label>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </div>
-                                        </center>
+                                                </div>
+                                            </center>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <br>
-                            <center>
-                                <a href="?controlador=Default&accion=mostrarListaRutas" class="genric-btn primary e-large">
-                                    <H3 style="color: GRAY; ">BUSCAR</H3>
-                                </a>
-                            </center>
-                        </div>
-
+                                <br>
+                                <center>
+                                    <button type="submit" style="background-color: black;">BUSCAR</button>
+                                </center>
+                        </form>
                     </div>
+
                 </div>
             </div>
+        </div>
 
         </div>
         <!-- slider Area End-->
