@@ -1,64 +1,70 @@
        <?php
 
-//Autor : Kenneth Lopez Porras
+        //Autor : Kenneth Lopez Porras
 
-require 'model/DefaultModel.php';
+        require 'model/DefaultModel.php';
 
-class DefaultController
-{
-    private $view;
+        class DefaultController
+        {
+            private $view;
 
-    public function __construct()
-    {
-        $this->view = new View();
-    } //constructor
+            public function __construct()
+            {
+                $this->view = new View();
+            } //constructor
 
-    //funciones para mostrar las vistas
+            //funciones para mostrar las vistas
 
-    public function AccionDefault()
-    {
-        $datos['tieneRespuesta'] = false;
+            public function AccionDefault()
+            {
 
-        $this->view->show('indexView.php', $datos);
-    } //accionDefault
+                $model = new DefaultModel();
+                $resultado['atractivos'] = $model->obtenerAtractivos();
+                $resultado['tieneRespuesta'] = false;
 
-    public function mostrarMenuAdmin()
-    {
-        $this->view->show('menuAdministrativo.php', null);
-    }//mostrarMenuAdmin
+                $this->view->show('indexView.php', $resultado);
+            } //accionDefault
 
-    public function mostrarActualizarRuta()
-    {
-        $this->view->show('actualizarRuta.php', null);
-    }//mostrarActualizarRuta
+            public function mostrarMenuAdmin()
+            {
+                $this->view->show('menuAdministrativo.php', null);
+            } //mostrarMenuAdmin
 
-    public function mostrarAgregarAtractivo()
-    {
-        $this->view->show('agregarAtractivo.php', null);
-    }//mostrarAgregarAtractivo
+            public function mostrarActualizarRuta()
+            {
+                $this->view->show('actualizarRuta.php', null);
+            } //mostrarActualizarRuta
 
-    public function mostrarAgregarRuta()
-    {
-        $this->view->show('agregarRuta.php', null);
-    }//mostrarAgregarRuta
+            public function mostrarAgregarAtractivo()
+            {
+                $this->view->show('agregarAtractivo.php', null);
+            } //mostrarAgregarAtractivo
 
-    public function mostrarListaRutas()
-    {
-        $this->view->show('listaRutas.php', null);
-    }//mostrarListaRutas
+            public function mostrarAgregarRuta()
+            {
+                $this->view->show('agregarRuta.php', null);
+            } //mostrarAgregarRuta
 
-    public function mostrarLogin()
-    {
-        $this->view->show('login.php', null);
-    }//mostrarLogin
+            public function mostrarListaRutas()
+            {
+                $this->view->show('listaRutas.php', null);
+            } //mostrarListaRutas
 
-    public function mostrarResultadoRuta()
-    {
-        $this->view->show('resultadoRuta.php', null);
-    }//mostrarResultadoRuta
+            public function mostrarLogin()
+            {
+                $this->view->show('login.php', null);
+            } //mostrarLogin
 
-    public function mostrarActualizarAtractivo(){
-        $this->view->show('actualizarAtractivo.php', null);
-    }//mostrarActualizarAtractivo
+            public function mostrarResultadoRuta()
+            {
+                $this->view->show('resultadoRuta.php', null);
+            } //mostrarResultadoRuta
 
-}
+            public function mostrarActualizarAtractivo()
+            {
+
+
+                $this->view->show('actualizarAtractivo.php', null);
+            } //mostrarActualizarAtractivo
+
+        }
