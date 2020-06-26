@@ -114,11 +114,11 @@ class Algortimos
     public function obtenerAtractivos($idRuta)
     {
 
-        $consulta = $this->db->prepare("SELECT  a.nombre,a.descripcion,a.imagen,v.video 
+        $consulta = $this->db->prepare("SELECT  a.idRuta,a.nombre,a.descripcion,a.imagen,v.video 
                                         FROM atractivos a
                                         JOIN video v
                                         ON a.video = v.id
-                                        WHERE idRuta = $idRuta;");
+                                        WHERE a.idRuta = $idRuta;");
         $consulta->execute();
         $resultado = $consulta->fetchAll();
         $consulta->CloseCursor();
@@ -142,7 +142,7 @@ class Algortimos
     public function obtenerDatosRuta($idRuta)
     {
 
-        $consulta = $this->db->prepare("SELECT nombre,latitud,longitud 
+        $consulta = $this->db->prepare("SELECT id,nombre,latitud,longitud,precio,tipoTurista,tipoActividad
                                         FROM rutas
                                         WHERE id = $idRuta;");
         $consulta->execute();
@@ -163,7 +163,17 @@ class Algortimos
 
         return $resultado;
     }
+    public function obtenerTodasLasRutas()
+    {
+        $consulta = $this->db->prepare("SELECT id, nombre 
+                                        FROM rutas;");
 
+        $consulta->execute();
+        $resultado = $consulta->fetchAll();
+        $consulta->CloseCursor();
+
+        return $resultado;
+    }
 
     public function actualizarAtractivo($id, $nombre, $descripcion, $imagen, $video)
     {
@@ -181,6 +191,19 @@ class Algortimos
     public function eliminarAtractivo($id)
     {
         $consulta = $this->db->prepare("DELETE FROM atractivos
+                                        WHERE id = $id");
+        $consulta->execute();
+        $consulta->closeCursor();
+    }
+
+    public function actualizarRuta($nombre, $precio, $tipoTurista, $tipoActividad, $id)
+    {
+
+        $consulta = $this->db->prepare("UPDATE rutas
+                                        SET nombre = '$nombre',
+                                        precio = $precio,
+                                        tipoTurista = $tipoTurista,
+                                        tipoActividad = $tipoActividad
                                         WHERE id = $id");
         $consulta->execute();
         $consulta->closeCursor();

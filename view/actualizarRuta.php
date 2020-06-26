@@ -95,15 +95,19 @@
                                 <div class="single-element-widget" style="width: 50% !important;">
                                     <h5 class="mb-30">Lista de rutas</h5>
                                     <div class="default-select" id="default-select"">
-                                    <select>
-                                        <option value=" 1">Seleccionar ruta</option>
-                                        <option value=" 1">Ruta 1</option>
-                                        <option value=" 1">Ruta 2</option>
-                                        <option value=" 1">Ruta 3</option>
+                                        <form action=" ?controlador=Default&accion=cargarRutaActualizar" method="POST">
+                                        <select id="idRuta" name="idRuta">
+                                            <?php foreach ($vars['rutas'] as $ruta) { ?>
+                                                <option value=" <?php echo $ruta['id'] ?>"><?php echo $ruta['nombre'] ?></option>
+
+                                            <?php } ?>
                                         </select>
                                         <center>
-                                            <a href="#actualizar" class="genric-btn primary e-large">Cargar ruta</a>
+                                            <button type="submit" style="  background-color: gray;">
+                                                <h4>Cargar ruta</h4>
+                                            </button>
                                         </center>
+                                        </form>
                                     </div>
                                 </div>
                             </center>
@@ -112,108 +116,92 @@
                     </div>
                 </div>
                 <br><br><br>
-
-                <div class="section-tittle text-center" id="actualizar">
-                    <h2>Actualizar ruta</h2>
-                </div>
-                <div class="section-top-border">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3">
+                <?php if ($vars['actualizar']) { ?>
+                    <div class="section-tittle text-center" id="actualizar">
+                        <h2>Actualizar ruta</h2>
+                        <br>
+                        <form action="?controlador=Default&accion=actualizarRuta" method="POST">
                             <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-
-                                    <h3 class="mb-30">Precio</h3>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Económico</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch1">
-                                            <label for="switch1"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Regular</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch2" checked>
-                                            <label for="switch2"></label>
-                                        </div>
-                                    </div>
-                                    <div class="switch-wrap d-flex justify-content-between">
-                                        <p>Premium</p>
-                                        <div class="primary-switch">
-                                            <input type="checkbox" id="switch3">
-                                            <label for="switch3"></label>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                <h3>Nombre de la ruta</h3>
+                                <input type="text" id="nombre" name="nombre" value="<?php echo $vars['rutaSeleccionada']['nombre'] ?>">
                             </center>
-                        </div>
-                        <div class="col-lg-2 col-md-2">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Tipo de turistas</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <select>
-                                        <option value=" 1">Niños</option>
-                                        <option value="1">Adultos</option>
-                                        <option value="1">Todo Publico</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-2 col-md-2">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Tipo de actividad</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <select>
-                                        <option value=" 1">Turismo cultural</option>
-                                        <option value="1">Turismo de aventura</option>
-                                        <option value="1">Turismo de playa</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </center>
-
-                        </div>
-                        <div class="col-lg-5 col-md-5">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Lista de atractivos</h3>
-                                    <div class="default-select" id="default-select"">
-                                     <table>
-
-                                    <tr>
-                                        <td>Atractivo 1</td>
-                                        <td><button style=" color: black">Eliminar</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Atractivo 2</td>
-                                            <td><button style="color: black">Eliminar</button></td>
-                                        </tr>
-                                        </table>
-                                        <br><br>
-                                        <select>
-                                            <option value=" 1">Seleccionar atractivo</option>
-                                        </select>
-                                        <button style="color: black">Agregar nuevo atractivo</button>
-                                    </div>
-
-                                </div>
-                            </center>
-
-                        </div>
                     </div>
+                    <div class="section-top-border">
 
-                    <center>
-                        <a href="?controlador=Default&accion=mostrarActualizarRuta" class="genric-btn primary e-large">Actualizar ruta</a>
-                    </center>
-                    <br><br><br>
-                    <center>
-                        <a href="?controlador=Default&accion=mostrarActualizarRuta" class="genric-btn primary e-large">Eliminar ruta</a>
-                    </center>
-                </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2">
+                                <center>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Tipo de Precio</h3>
+                                        <div class="default-select" id="default-select"">
+                                    <select id=" precio" name="precio">
+                                            <option value="<?php echo $vars['rutaSeleccionada']['precio'] ?>" selected><?php echo $vars['nombrePrecio'] ?></option>
+                                            <option value=" 1">Economico</option>
+                                            <option value="2">Regular</option>
+                                            <option value="3">Premium</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="col-lg-2 col-md-2">
+                                <center>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Tipo de turistas</h3>
+                                        <div class="default-select" id="default-select"">
+                                    <select id=" tipoTurista" name="tipoTurista">
+                                            <option value="<?php echo $vars['rutaSeleccionada']['tipoTurista'] ?>" selected><?php echo $vars['nombreTipoTurista'] ?></option>
+                                            <option value=" 1">Niños</option>
+                                            <option value="2">Adultos</option>
+                                            <option value="3">Todo Publico</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="col-lg-2 col-md-2">
+                                <center>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Tipo de actividad</h3>
+                                        <div class="default-select" id="default-select"">
+                                    <select id=" tipoActividad" name="tipoActividad">
+                                            <option value="<?php echo $vars['rutaSeleccionada']['tipoActividad'] ?>" selected><?php echo $vars['nombreTipoActividad'] ?></option>
+                                            <option value=" 1">Turismo cultural</option>
+                                            <option value="2">Turismo de aventura</option>
+                                            <option value="3">Turismo de playa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </center>
+                                <br><br>
+                            </div>
+                            <div class="col-lg-5 col-md-5">
+                                <center>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Lista de atractivos</h3>
+                                        <div class="default-select" id="default-select">
+                                            <table>
+                                                <?php foreach ($vars['atractivos'] as $atractivo) { ?>
+                                                    <tr>
+                                                        <td>◙ <?php echo $atractivo['nombre'] ?></td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </center>
+
+                            </div>
+                        </div>
+                        <input type="hidden" id="id" name="id" value="<?php echo $vars['rutaSeleccionada']['id'] ?>">
+                        <center>
+                            <button type="submit" style="background-color: black;">Actualizar ruta</button>
+                        </center>
+                        </form>
+
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <br><br><br><br>

@@ -37,8 +37,69 @@
 
         public function mostrarActualizarRuta()
         {
-            $this->view->show('actualizarRuta.php', null);
+
+            $algoritmos = new Algortimos();
+            $datos['rutas'] = $algoritmos->obtenerTodasLasRutas();
+            $datos['actualizar'] = false;
+            $this->view->show('actualizarRuta.php', $datos);
         } //mostrarActualizarRuta
+
+        public function cargarRutaActualizar()
+        {
+            $algoritmos = new Algortimos();
+            $idRuta = $_POST['idRuta'];
+            $atractivosRuta = $algoritmos->obtenerAtractivos($idRuta);
+
+
+            $nombrePrecio = "";
+            $nombreTipoTurista = "";
+            $nombreTipoActividad = "";
+
+
+            $datos['rutas'] = $algoritmos->obtenerTodasLasRutas();
+            $datos['rutaSeleccionada'] = $algoritmos->obtenerDatosRuta($idRuta);
+
+            switch ($datos['rutaSeleccionada']['precio']) {
+                case 1:
+                    $nombrePrecio = "Económico";
+                    break;
+                case 2:
+                    $nombrePrecio = "Regular";
+                    break;
+                case 3:
+                    $nombrePrecio = "Premium";
+                    break;
+            }
+            switch ($datos['rutaSeleccionada']['tipoTurista']) {
+                case 1:
+                    $nombreTipoTurista = "Niños";
+                    break;
+                case 2:
+                    $nombreTipoTurista = "Adultos";
+                    break;
+                case 3:
+                    $nombreTipoTurista = "Todo Público";
+                    break;
+            }
+            switch ($datos['rutaSeleccionada']['precio']) {
+                case 1:
+                    $nombreTipoActividad = "Turismo cultural";
+                    break;
+                case 2:
+                    $nombreTipoActividad = "Turismo de aventura";
+                    break;
+                case 3:
+                    $nombreTipoActividad = "Turismo de playa";
+                    break;
+            }
+            $datos['nombrePrecio'] = $nombrePrecio;
+            $datos['nombreTipoTurista'] = $nombreTipoTurista;
+            $datos['nombreTipoActividad'] = $nombreTipoActividad;
+
+            $datos['actualizar'] = true;
+            $datos['atractivos'] = $atractivosRuta;
+            $this->view->show('actualizarRuta.php', $datos);
+        }
 
         public function mostrarAgregarAtractivo()
         {
@@ -54,7 +115,7 @@
         {
 
             session_start();
-            $algoritos = new Algortimos();
+            $algoritmos = new Algortimos();
             $precio = 0;
             $tipoTurista = 0;
             $tipoActividad = 0;
@@ -93,7 +154,7 @@
             $datosUsuario['tipoTurista'] = $tipoTurista;
 
             //se ejecuta el algoritmo Euclides con los datos del usuario
-            $resultado['rutas'] = $algoritos->euclides($datosUsuario);
+            $resultado['rutas'] = $algoritmos->euclides($datosUsuario);
             $_SESSION['rutas'] = $resultado['rutas'];
 
             $this->view->show('listaRutas.php',  $resultado);
@@ -107,11 +168,11 @@
         public function mostrarResultadoRuta()
         {
             session_start();
-            $algoritos = new Algortimos();
+            $algoritmos = new Algortimos();
             $idRuta = $_GET['idRuta'];
 
-            $datosRuta = $algoritos->obtenerDatosRuta($idRuta);
-            $atractivosRuta = $algoritos->obtenerAtractivos($idRuta);
+            $datosRuta = $algoritmos->obtenerDatosRuta($idRuta);
+            $atractivosRuta = $algoritmos->obtenerAtractivos($idRuta);
             //se obtiene los datos de la ruta para mostrarlo en la vista
             $resultado['nombreRuta'] = $datosRuta['nombre'];
             $resultado['latitudRuta'] = $datosRuta['latitud'];
@@ -124,8 +185,8 @@
 
         public function mostrarActualizarAtractivo()
         {
-            $algoritos = new Algortimos();
-            $resultado['atractivos'] = $algoritos->obtenerTodosLosAtractivos();
+            $algoritmos = new Algortimos();
+            $resultado['atractivos'] = $algoritmos->obtenerTodosLosAtractivos();
 
             $this->view->show('actualizarAtractivo.php', $resultado);
         } //mostrarActualizarAtractivo
@@ -160,4 +221,20 @@
             $this->view->show('actualizarAtractivo.php', $resultado);
         } //actualizarAtractivo
 
+
+        public function actualizarRuta()
+        {
+            $algoritmos = new Algortimos();
+            $nombre = $_POST['nombre'];
+            $precio = $_POST['precio'];
+            $tipoTurista = $_POST['tipoTurista'];
+            $tipoActividad = $_POST['tipoActividad'];
+            $id = $_POST['id'];
+
+            $algoritmos->actualizarRuta($nombre, $precio, $tipoTurista, $tipoActividad, $id);
+
+            $datos['rutas'] = $algoritmos->obtenerTodasLasRutas();
+            $datos['actualizar'] = false;
+            $this->view->show('actualizarRuta.php', $datos);
+        }
     }
