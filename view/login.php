@@ -111,10 +111,12 @@
                                 <div class="mt-10">
                                     <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="single-input" required>
                                 </div>
+                                <br>
                                 <div class="mt-10">
                                     <input type="text" name="contrasena" id="contrasena" placeholder="Contraseña" class="single-input" required>
                                 </div>
-                                <button type="submit" style="background-color: black;">Ingresar</button>
+                                <br>
+                                <button type="submit"  class="genric-btn primary e-large">Ingresar</button>
                             </form>
                             <br>
                         </center>

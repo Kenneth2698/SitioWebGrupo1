@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24"></script>
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24"></script>
+    <script src="assets/js/leaflet.js"></script>
 
+
+    
 </head>
 
 <body>
@@ -172,28 +172,7 @@
                     cursor: pointer;
                 }
             </style>
-            <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-            <script>
-                var myMap;
-                var myLatlng = new google.maps.LatLng(<?php echo $vars['latitudRuta'] ?>, <?php echo $vars['longitudRuta'] ?>);
-
-                function initialize() {
-                    var mapOptions = {
-                        zoom: 17,
-                        center: myLatlng,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                        scrollwheel: true
-                    }
-                    myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
-                    var marker = new google.maps.Marker({
-                        position: myLatlng,
-                        map: myMap,
-                        title: 'Ruta',
-                        icon: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png'
-                    });
-                }
-                google.maps.event.addDomListener(window, 'load', initialize);
-            </script>
+            
 
 
             <div class="section-top-border" id="galeria">
@@ -207,10 +186,14 @@
                             </a>
                         </div>
                     <?php } ?>
-                </div>`
+                </div>
             </div>
+
+            <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
             <center>
-                <div class="col-md-10" id="map" style="width:100%; height: 300px;"></div>
+            <h3>Ubicación</h3>
+                <div id="mapid" style="z-index: -1;></div> 
             </center>
             <div class="favourite-place place-padding">
                 <div class="container">
@@ -222,7 +205,7 @@
                             <div class="col-md-4">
                                 <div class="single-place mb-30">
                                     <div class="place-img">
-                                        <img src="view/assets/img/imagenes/i<?php echo $ruta['imagen'] ?>.jpg" alt="">
+                                        <img src="view/assets/img/imagenes/i<?php echo $ruta['imagen'] ?>.jpg" alt="" width="300" height="250">
                                     </div>
                                     <div class="place-cap">
                                         <div class="place-cap-top">
@@ -241,7 +224,17 @@
                 </div>
             </div>
 
-            <div id="myModal" class="modal">
+            <style>#mapid { height: 300px; }</style>
+            <script>
+               
+                var map = L.map('mapid').setView([<?php echo $vars['longitudRuta'] ?>, <?php echo $vars['latitudRuta'] ?>], 15);
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>', maxZoom: 18 }).addTo(map);
+                L.control.scale().addTo(map);
+                L.marker([<?php echo $vars['longitudRuta'] ?>, <?php echo $vars['latitudRuta'] ?>], { draggable: true }).addTo(map);
+                
+            </script>
+
+            <div id="myModal" class="modal" ">
                 <div class="modal-content">
                     <CENTER>
                         <span id="1" class="close">&times;</span>

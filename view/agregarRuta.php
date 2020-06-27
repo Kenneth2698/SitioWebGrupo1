@@ -88,88 +88,143 @@
                     <h2>Crea una nueva ruta</h2>
                 </div>
                 <div class="section-top-border">
+                <form action="?controlador=Default&accion=agregarRuta" method="POST">
                     <div class="row">
-                       <div class="col-lg-3 col-md-3">
-                            <center>
-                            <div class="single-element-widget" style="width: 50% !important;">
-                                
-                                <h3 class="mb-30">Precio</h3>
-                                <div class="switch-wrap d-flex justify-content-between" >
-                                    <p>Económico</p>
-                                    <div class="primary-switch">
-                                        <input type="checkbox" id="switch1">
-                                        <label for="switch1"></label>
-                                    </div>
-                                </div>
-                                <div class="switch-wrap d-flex justify-content-between">
-                                    <p>Regular</p>
-                                    <div class="primary-switch">
-                                        <input type="checkbox" id="switch2" checked>
-                                        <label for="switch2"></label>
-                                    </div>
-                                </div>
-                                <div class="switch-wrap d-flex justify-content-between">
-                                    <p>Premium</p>
-                                    <div class="primary-switch">
-                                        <input type="checkbox" id="switch3">
-                                        <label for="switch3"></label>
-                                    </div>
-                                </div>
-                            
-                            </div>
-                        </center>
-                        </div>
-                       <div class="col-lg-3 col-md-3">
-                            <center>
-                            <div class="single-element-widget" style="width: 50% !important;">
-                                <h3 class="mb-30">Tipo de turistas</h3>
-                                <div class="default-select" id="default-select"">
-                                    <select>
-                                        <option value=" 1">Niños</option>
-                                        <option value="1">Adultos</option>
-                                        <option value="1">Todo Publico</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </center>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <center>
-                            <div class="single-element-widget" style="width: 50% !important;">
-                                <h3 class="mb-30">Tipo de actividad</h3>
-                                <div class="default-select" id="default-select"">
-                                    <select>
-                                        <option value=" 1">Turismo cultural</option>
-                                        <option value="1">Turismo de aventura</option>
-                                        <option value="1">Turismo de playa</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </center>
-
-                    </div>
-                        <div class="col-lg-3 col-md-3">
-                            <center>
-                            <div class="single-element-widget" style="width: 50% !important;">
-                                <h3 class="mb-30">Lista de atractivos</h3>
-                                <div class="default-select" id="default-select"">
-                                    <select>
-                                        <option value=" 1">Seleccionar atractivo</option>
-                                     </select>
-                                       <center>
-                                            <a href="#"  class="genric-btn primary e-large">Agregar</a>
-                                        </center>
-                                </div>
-                            </div>
-                        </center>
-
-                    </div>
                     
+                        <div class="col-lg-5 col-md-5">
+                            
+                            <center>
+                                <h2>Datos básicos</h2>
+                                <br>
+                                <div class="single-element-widget" style="width: 50% !important;">
+                                    <h3 class="mb-30">Nombre de la ruta</h3>
+                                    <div class="default-select" id="default-select">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ejemplo: Turrialba">
+                                    </div>
+                                </div>
+                            </center>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <center>
+                                        <div class="single-element-widget" style="width: 100% !important;">
+                                            <h3 class="mb-30">Latitud</h3>
+                                            <div class="default-select" id="default-select">
+                                            <input type="text"  class="form-control" id="latitud" name="latitud" placeholder="Ejemplo: 41.4032 ">
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <center>
+                                        <div class="single-element-widget" style="width: 100% !important;">
+                                            <h3 class="mb-30">Longitud</h3>
+                                            <div class="default-select" id="default-select">
+                                            <input type="text"  class="form-control" id="longitud" name="longitud" placeholder="Ejemplo: 2.17403 ">
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+
+                            </div>
+                            <br><br>
+                            <center>
+                            <div class="single-element-widget" style="width: 50% !important;">
+                                <h3 class="mb-30">Imagen</h3>
+                                <div class="default-select" id="default-select">
+                                    <select size="1" name="imagen" id="imagen">
+                                        <option value="1">Imagen 1</option>
+                                        <option value="2">Imagen 3</option>
+                                        <option value="3">Imagen 4</option>
+                                        <option value="4">Imagen 5</option>
+                                        <option value="5">Imagen 6</option>
+                                        <option value="6">Imagen 6</option>
+                                        <option value="7">Imagen 7</option>
+                                        <option value="8">Imagen 8</option>
+                                        <option value="9">Imagen 9</option>
+                                        <option value="10">Imagen 10</option>
+                                        <option value="11">Imagen 11</option>
+                                        <option value="12">Imagen 12</option>
+                                        <option value="13">Imagen 13</option>
+                                        <option value="14">Imagen 14</option>
+                                        <option value="15">Imagen 15</option>
+                                        <option value="16">Imagen 16</option>
+                                        <option value="17">Imagen 17</option>
+                                        <option value="18">Imagen 18</option>
+                                        <option value="19">Imagen 19</option>
+                                        <option value="20">Imagen 20</option>
+                                        <option value="21">Imagen 21</option>
+                                        <option value="22">Imagen 22</option>
+                                        <option value="23">Imagen 23</option>
+                                        <option value="24">Imagen 24</option>
+                                        <option value="25">Imagen 25</option>
+                                        <option value="26">Imagen 26</option>
+                                        <option value="27">Imagen 27</option>
+                                        <option value="28">Imagen 28</option>
+                                        <option value="29">Imagen 29</option>
+                                        <option value="30">Imagen 30</option>
+                                    </select>
+                                </div>
+                            </div>
+                                </center>
+                        </div>
+                         <br>
+                        
+                        <div class="col-lg-7 col-md-7">
+                            <center>
+                            <h2>Criterios de busqueda</h2>
+                            <br>
+                            </center>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="single-element-widget" style="width: 100% !important;">
+                                        <h3 class="mb-30">Precio</h3>
+                                        <div class="default-select" id="default-select"">
+                                            <select name="precio" id="precio">
+                                                <option value="1">Económico</option>
+                                                <option value="2">Regular</option>
+                                                <option value="3">Premium</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="single-element-widget" style="width: 100% !important;">
+                                        <h3 class="mb-30">Tipo de turistas</h3>
+                                        <div class="default-select" id="default-select"">
+                                            <select name="tipoTurista" id="tipoTurista">
+                                                <option value="1">Niños</option>
+                                                <option value="2">Adultos</option>
+                                                <option value="3">Todo Publico</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="single-element-widget" style="width: 100% !important;">
+                                        <h3 class="mb-30">Tipo de actividad</h3>
+                                        <div class="default-select" id="default-select"">
+                                            <select name="tipoActividad" id="tipoActividad">
+                                                <option value="1">Turismo cultural</option>
+                                                <option value="2">Turismo de aventura</option>
+                                                <option value="3">Turismo de playa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <center>
+                        <button type="submit" class="genric-btn primary e-large">Registrar ruta</button>
+                    </center>
+                </form>
                 </div>
 
-                <center>
-                    <a href="#" class="genric-btn primary e-large">Registrar ruta</a>
-                </center>
+                
             </div>
             </div>
         </div>
