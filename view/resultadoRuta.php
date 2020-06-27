@@ -193,7 +193,7 @@
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
             <center>
             <h3>Ubicación</h3>
-                <div id="mapid" style="z-index: -1;></div> 
+                <div id="mapid" style="z-index: -1;"></div> 
             </center>
             <div class="favourite-place place-padding">
                 <div class="container">
