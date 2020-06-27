@@ -1,5 +1,11 @@
     <?php
 
+    session_start();
+
+
+    if (!isset($_SESSION['atractivosRuta'])) {
+        $_SESSION['atractivosRuta'] = array();
+    }
     //Kenneth Lopez
     //Byron Ortiz
     require 'model/Algoritmos.php';
@@ -117,7 +123,7 @@
         public function mostrarListaRutas()
         {
 
-            session_start();
+            
             $algoritmos = new Algortimos();
             $precio = 0;
             $tipoTurista = 0;
@@ -170,7 +176,6 @@
 
         public function mostrarResultadoRuta()
         {
-            session_start();
             $algoritmos = new Algortimos();
             $idRuta = $_GET['idRuta'];
 
@@ -186,6 +191,8 @@
             $this->view->show('resultadoRuta.php', $resultado);
         } //mostrarResultadoRuta
 
+
+
         public function mostrarActualizarAtractivo()
         {
             $algoritmos = new Algortimos();
@@ -193,6 +200,28 @@
 
             $this->view->show('actualizarAtractivo.php', $resultado);
         } //mostrarActualizarAtractivo
+
+
+        public function agregarAtractivo()
+        {
+            $algoritmos = new Algortimos();
+            //se obtienen los datos 
+            $lugar = $_POST['lugar'];
+            $descripcion = $_POST['descripcion'];
+            $imagen = $_POST['imagen'];
+            $video = $_POST['video'];
+            $precio = $_POST['precio'];
+            $tipoTurista = $_POST['tipoTurista'];
+            $tipoActividad = $_POST['tipoActividad'];
+            $categoria = rand(1, 3);
+
+
+            //se agrega el atractivo 
+            $algoritmos->agregarAtractivo($lugar, $descripcion, $imagen, $video, $precio, $tipoTurista, $tipoActividad, $categoria);
+            $resultado['mensaje'] = "Ingresado correctamente";
+            $this->view->show('agregarAtractivo.php', $resultado);
+        } 
+
 
         public function actualizarAtractivo()
         {
@@ -224,7 +253,40 @@
             $this->view->show('actualizarAtractivo.php', $resultado);
         } //actualizarAtractivo
 
+        //METODO EN EL QUE SE REGISTRAN LOS DATOS DE LA RUTA Y SE OBTIENEN LOS ATRACTIVOS RECOMENDADOS SEGUN LOS CRITERIOS DE LA RUTA MEDIANTE EL ALGORITMO DE BAYES
+        public function agregarRuta()
+        {
+            $algoritmos = new Algortimos();
+            //se obtienen los datos 
+            $nombre = $_POST['nombre'];
+            $latitud = $_POST['latitud'];
+            $longitud = $_POST['longitud'];
+            $imagen = $_POST['imagen'];
+            $precio = $_POST['precio'];
+            $tipoTurista = $_POST['tipoTurista'];
+            $tipoActividad = $_POST['tipoActividad'];
 
+
+            //se agrega el atractivo 
+            $algoritmos->agregarRuta($nombre,$latitud, $longitud, $imagen, $precio, $tipoTurista, $tipoActividad);
+            
+            //se asignan los datos a un array
+            $datosUsuario = array();
+            $datosUsuario['precio'] = $precio;
+            $datosUsuario['tipoActividad'] = $tipoActividad;
+            $datosUsuario['tipoTurista'] = $tipoTurista;
+
+            //SE OBTIENEN LOS ATRACTIVOS CON BAYES 
+            $recomendados = $algoritmos->bayes($datosUsuario);
+            
+
+            $_SESSION['ruta'] = $algoritmos->obtenerUltimaRuta();
+            
+            $data['atractivos'] = $recomendados;
+
+            $this->view->show('agregarAtractivosRuta.php', $data);
+        } 
+      
         public function actualizarRuta()
         {
             $algoritmos = new Algortimos();
@@ -240,4 +302,46 @@
             $datos['actualizar'] = false;
             $this->view->show('actualizarRuta.php', $datos);
         } //actualizarRuta
+
+        //METODO QUE VA ALMACENANDO LOS ATRACTIVOS SELECCIONADOS PARA AGREGAR A LA RUTA
+        public function agregarAtractivoRuta()
+        {
+            $atractivo = $_POST['id'];
+            $cont = 0;
+            $encontro1 = 0;
+    
+            $cont = 0;
+            foreach ($_SESSION['atractivosRuta'] as $se) {
+                if ( $se == $atractivo) {
+                    $encontro1 = 1;
+                }
+                $cont++;
+            }
+    
+            if ($encontro1 == 0 ) {
+                $_SESSION['atractivosRuta'][$cont] = $atractivo;
+                echo "Atractivo agregado";
+            } else {
+                echo "Este atractivo ya fue agregado";
+            }
+        }  
+       
+        public function registrarAtractivoRuta()
+        {
+            $algoritmos = new Algortimos();
+            
+            foreach ($_SESSION['atractivosRuta'] as $at) {
+                $algoritmos->registrarAtractivosRuta($at, $_SESSION['ruta'][0]['id']);
+            }
+    
+            unset($_SESSION['atractivosRuta']);
+            unset($_SESSION['ruta']);
+
+            echo "<script> alert('Ruta creada correctamente') </script>";
+
+            $this->view->show('menuAdministrativo.php', null);
+            
+        }  
+
+
     }

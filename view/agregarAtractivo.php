@@ -88,123 +88,140 @@
                 <div class="section-tittle text-center">
                     <h2>Crea un nuevo atractivo</h2>
                 </div>
-                <div class="section-top-border">
-                    <div class="row">
 
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Lugar</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="Ejemplo: Turrialba">
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Imagen</h3>
-                                    <div class="default-select" id="default-select">
-                                        <select size="1" name="imagen" id="imagen">
-                                            <option value="1">Imagen 1</option>
-                                            <option value="2">Imagen 3</option>
-                                            <option value="3">Imagen 4</option>
-                                            <option value="4">Imagen 5</option>
-                                            <option value="5">Imagen 6</option>
-                                            <option value="6">Imagen 6</option>
-                                            <option value="7">Imagen 7</option>
-                                            <option value="8">Imagen 8</option>
-                                            <option value="9">Imagen 9</option>
-                                            <option value="10">Imagen 10</option>
-                                            <option value="11">Imagen 11</option>
-                                            <option value="12">Imagen 12</option>
-                                            <option value="13">Imagen 13</option>
-                                            <option value="14">Imagen 14</option>
-                                            <option value="15">Imagen 15</option>
-                                            <option value="16">Imagen 16</option>
-                                            <option value="17">Imagen 17</option>
-                                            <option value="18">Imagen 18</option>
-                                            <option value="19">Imagen 19</option>
-                                            <option value="20">Imagen 20</option>
-                                            <option value="21">Imagen 21</option>
-                                            <option value="22">Imagen 22</option>
-                                            <option value="23">Imagen 23</option>
-                                            <option value="24">Imagen 24</option>
-                                            <option value="25">Imagen 25</option>
-                                            <option value="26">Imagen 26</option>
-                                            <option value="27">Imagen 27</option>
-                                            <option value="28">Imagen 28</option>
-                                            <option value="29">Imagen 29</option>
-                                            <option value="30">Imagen 30</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Descripcion</h3>
-                                    <div class="default-select" id="default-select">
-                                        <textarea id="w3mission" rows="10" cols="50">
-
-                                </textarea>
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-
-                        <div class="col-lg-2 col-md-2">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Latitud</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="Ejemplo: 41.4032 ">
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <div class="col-lg-2 col-md-2">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Longitud</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <input type=" text" name="" placeholder="Ejemplo: 2.17403 ">
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <br>
-                        <div class="col-lg-4 col-md-4">
-                            <center>
-                                <div class="single-element-widget" style="width: 50% !important;">
-                                    <h3 class="mb-30">Video</h3>
-                                    <div class="default-select" id="default-select"">
-                                    <select name=" video" id="video">
-                                        <option value="1">Video 1</option>
-                                        <option value="2">Video 2</option>
-                                        <option value="3">Video 3</option>
-                                        <option value="4">Video 4</option>
-                                        <option value="5">Video 5</option>
-                                        <option value="6">Video 6</option>
-                                        <option value="7">Video 7</option>
-                                        <option value="8">Video 8</option>
-                                        <option value="9">Video 9</option>
-                                        <option value="10">Video 10</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-
+                <?php if (isset($vars['mensaje'])) { ?>
                 <center>
-                    <a href="#" class="genric-btn primary e-large">Registrar atractivo</a>
+                    <h3 style="color: green;"><?php echo $vars['mensaje'] ?></h3>
                 </center>
+                <br>
+                <?php } ?>
+                <div class="section-top-border">
+                    <form action="?controlador=Default&accion=agregarAtractivo" method="POST">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <center>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Lugar</h3>
+                                        <div class="default-select" id="default-select">
+                                        <input type="text" class="form-control" id="lugar" name="lugar" placeholder="Ejemplo: Turrialba">
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <center>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Imagen</h3>
+                                        <div class="default-select" id="default-select">
+                                            <select size="1" name="imagen" id="imagen">
+                                                <option value="1">Imagen 1</option>
+                                                <option value="2">Imagen 3</option>
+                                                <option value="3">Imagen 4</option>
+                                                <option value="4">Imagen 5</option>
+                                                <option value="5">Imagen 6</option>
+                                                <option value="6">Imagen 6</option>
+                                                <option value="7">Imagen 7</option>
+                                                <option value="8">Imagen 8</option>
+                                                <option value="9">Imagen 9</option>
+                                                <option value="10">Imagen 10</option>
+                                                <option value="11">Imagen 11</option>
+                                                <option value="12">Imagen 12</option>
+                                                <option value="13">Imagen 13</option>
+                                                <option value="14">Imagen 14</option>
+                                                <option value="15">Imagen 15</option>
+                                                <option value="16">Imagen 16</option>
+                                                <option value="17">Imagen 17</option>
+                                                <option value="18">Imagen 18</option>
+                                                <option value="19">Imagen 19</option>
+                                                <option value="20">Imagen 20</option>
+                                                <option value="21">Imagen 21</option>
+                                                <option value="22">Imagen 22</option>
+                                                <option value="23">Imagen 23</option>
+                                                <option value="24">Imagen 24</option>
+                                                <option value="25">Imagen 25</option>
+                                                <option value="26">Imagen 26</option>
+                                                <option value="27">Imagen 27</option>
+                                                <option value="28">Imagen 28</option>
+                                                <option value="29">Imagen 29</option>
+                                                <option value="30">Imagen 30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Video</h3>
+                                        <div class="default-select" id="default-select"">
+                                        <select name=" video" id="video">
+                                            <option value="1">Video 1</option>
+                                            <option value="2">Video 2</option>
+                                            <option value="3">Video 3</option>
+                                            <option value="4">Video 4</option>
+                                            <option value="5">Video 5</option>
+                                            <option value="6">Video 6</option>
+                                            <option value="7">Video 7</option>
+                                            <option value="8">Video 8</option>
+                                            <option value="9">Video 9</option>
+                                            <option value="10">Video 10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div>
+                                    
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Precio</h3>
+                                        <div class="default-select" id="default-select"">
+                                            <select name="precio" id="precio">
+                                                <option value="1">Económico</option>
+                                                <option value="2">Regular</option>
+                                                <option value="3">Premium</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Tipo de turistas</h3>
+                                        <div class="default-select" id="default-select"">
+                                            <select name="tipoTurista" id="tipoTurista">
+                                                <option value="1">Niños</option>
+                                                <option value="2">Adultos</option>
+                                                <option value="3">Todo Publico</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="single-element-widget" style="width: 50% !important;">
+                                        <h3 class="mb-30">Tipo de actividad</h3>
+                                        <div class="default-select" id="default-select"">
+                                            <select name="tipoActividad" id="tipoActividad">
+                                                <option value="1">Turismo cultural</option>
+                                                <option value="2">Turismo de aventura</option>
+                                                <option value="3">Turismo de playa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+                        <center>
+                        <div class="single-element-widget" style="width: 100% !important;">
+                            <h3 class="mb-30">Descripcion</h3>
+                            <textarea id="descripcion" name="descripcion" rows="6" cols="100"></textarea>                        
+                        </div>
+                        </center>
+                        <br><br>
+                        <center>
+                            <button type="submit" class="genric-btn primary e-large">Registrar atractivo</button>
+                        </center>
+                    </from>
+                </div>
+               
             </div>
-        </div>
         </div>
         <br><br><br><br><br><br>
     </main>

@@ -103,9 +103,7 @@
                                             <?php } ?>
                                         </select>
                                         <center>
-                                            <button type="submit" style="  background-color: gray;">
-                                                <h4>Cargar ruta</h4>
-                                            </button>
+                                            <button type="submit" class="genric-btn primary e-large">Cargar ruta</button>
                                         </center>
                                         </form>
                                     </div>
@@ -196,7 +194,7 @@
                         </div>
                         <input type="hidden" id="id" name="id" value="<?php echo $vars['rutaSeleccionada']['id'] ?>">
                         <center>
-                            <button type="submit" style="background-color: black;">Actualizar ruta</button>
+                            <button type="submit" class="genric-btn primary e-large">Actualizar ruta</button>
                         </center>
                         </form>
 

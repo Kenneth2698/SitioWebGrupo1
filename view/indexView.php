@@ -192,7 +192,7 @@
                                 </div>
                                 <br>
                                 <center>
-                                    <button type="submit" style="background-color: black;">BUSCAR</button>
+                                    <button type="submit" class="genric-btn primary e-large">BUSCAR</button>
                                 </center>
                         </form>
                     </div>

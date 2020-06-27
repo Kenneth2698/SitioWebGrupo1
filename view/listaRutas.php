@@ -108,7 +108,7 @@
                         <div class="col-md-4">
                             <div class="single-place mb-30">
                                 <div class="place-img">
-                                    <img src="view/assets/img/imagenes/i<?php echo $ruta['imagen'] ?>.jpg" alt="">
+                                    <img src="view/assets/img/imagenes/i<?php echo $ruta['imagen'] ?>.jpg" alt="" width="300" height="250">
                                 </div>
                                 <div class="place-cap">
                                     <div class="place-cap-top">
